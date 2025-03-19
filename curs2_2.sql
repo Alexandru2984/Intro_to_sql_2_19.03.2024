@@ -28,3 +28,24 @@ select * from date_personale where varsta is null;
 insert date_personale set prenume = 'Cornel', nume = 'Cornescu';
 insert date_personale set prenume = 'Cornel', nume = 'Cornescu', pozitie = 'Mijlocas';
 
+use personal;
+drop table if exists people;
+create table if not exists personal.people(
+	id int primary key auto_increment,
+	first_name Varchar(255),
+    last_name varchar(255)
+);
+select * from people;
+insert people set first_name = 'Cornel', last_name = 'Cornescu';
+
+alter table people add column age int;
+update people set age = 25 where id = 1;
+
+insert into people set first_name = 'Donald', last_name = 'Duck', age=30 ;
+insert into people set first_name = 'Mouse', last_name = 'Mickey', age=30;
+insert into people set first_name = 'Duck', last_name = 'Duffy', age=30 ;
+insert into people set first_name = 'Mouse', last_name = 'Minnie', age=20;
+
+alter table people add column varsta int;
+alter table people add column retea varchar(255) default 'Disney';
+alter table people add column culoare varchar(255),add dimensiune int;
